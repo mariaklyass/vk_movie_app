@@ -13,3 +13,4 @@
 ```npm i```
 ```npm run dev```
 Приложение запускается на порте ```http://localhost:5173/movies```
+![vk](https://github.com/mariaklyass/vk_movie_app/assets/110608602/a1f79b7d-7c2e-405a-b0a8-ead8ca2ef84d)
