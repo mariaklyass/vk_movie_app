@@ -10,36 +10,26 @@ interface MovieCardProps {
 const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
   return (
     <div className="movie-card">
-      <h2>{movie.name}</h2>
       {movie.poster && movie.poster.previewUrl ? (
         <img src={movie.poster.previewUrl} alt={movie.name} />
       ) : (
         <img src={placeholderMovieImg} alt={movie.name} />
       )}
+
+      <h2>{movie.name}</h2>
       <p>{movie.description}</p>
-      <div>
-        <strong>Рейтинг:</strong>
-        <ul className="rating">
-          <li>KP: {movie.rating.kp}</li>
-          <li>IMDb: {movie.rating.imdb}</li>
-          <li>Film Critics: {movie.rating.filmCritics}</li>
-          <li>Russian Film Critics: {movie.rating.russianFilmCritics}</li>
-        </ul>
-      </div>
-      {/* <div>
-        {movie.genres && movie.genres.length > 0 && (
-          <div>
-            <strong>Genres:</strong>
-            <ul>
-              {movie.genres.map((genre) => (
-                <li key={genre.name}>{genre.name}</li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </div> */}
-      <div>
-        <strong>Year:</strong> {movie.year}
+
+      <ul className="rating">
+        {" "}
+        Рейтинг:
+        <li>KP: {movie.rating.kp}</li>
+        <li>IMDb: {movie.rating.imdb}</li>
+        <li>Кинокритики: {movie.rating.filmCritics}</li>
+        <li>Русские кинокритики: {movie.rating.russianFilmCritics}</li>
+      </ul>
+
+      <div className="card-bottom">
+        <strong>Год:</strong> {movie.year}
       </div>
     </div>
   );

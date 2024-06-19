@@ -14,11 +14,16 @@ const MovieDetails = () => {
   useEffect(() => {
     const getMovieDetails = async () => {
       try {
-        const data = await fetchMovieDetails(id);
-        if (data) {
-          setDetails(data);
+        if (id) {
+          // Check if id is not undefined
+          const data = await fetchMovieDetails(id);
+          if (data) {
+            setDetails(data);
+          } else {
+            console.error("No movie data found");
+          }
         } else {
-          console.error("No movie data found");
+          console.error("Movie id is undefined");
         }
       } catch (error) {
         console.error("Error fetching movie details: ", error);
@@ -35,15 +40,15 @@ const MovieDetails = () => {
   };
 
   if (!details) {
-    return <div>Loading...</div>;
+    return <div>Загрузка...</div>;
   }
 
   return (
     <div className="movie-details-container">
-      <button onClick={handleBack}>Back</button>
-      <h1>Movie Details</h1>
+      <button onClick={handleBack}>Назад</button>
+
       <div className="movie-details">
-        <h2>{details.name}</h2>
+        <h1>{details.name}</h1>
         {details.poster && details.poster.previewUrl ? (
           <img src={details.poster.previewUrl} alt={details.name} />
         ) : (

@@ -12,17 +12,14 @@ export const fetchMovies = async (
 ) => {
   let url = `${API_BASE_URL}/movie?page=${page}&limit=${limit}&selectFields=poster&selectFields=id&selectFields=name&selectFields=description&selectFields=year&selectFields=rating&selectFields=genres&notNullFields=name&notNullFields=description`;
 
-  // Append year range filter if provided
   if (yearRange && yearRange !== "all" && yearRange !== "") {
     url += `&year=${yearRange}`;
   }
 
-  // Append rating range filter if provided
   if (ratingRange && ratingRange !== "allRatings" && ratingRange !== "") {
     url += `&rating.imdb=${ratingRange}`;
   }
 
-  // Append genre filters if provided
   if (genres && genres.length > 0) {
     genres.forEach((genre) => {
       url += `&genres.name=${genre}`;
