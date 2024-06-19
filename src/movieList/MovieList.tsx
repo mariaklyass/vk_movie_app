@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { fetchMovies } from "./apiService";
-import MovieCard from "./MovieCard";
-import { Movie } from "./utils/types";
+import { fetchMovies } from "../apiService";
+import MovieCard from "../MovieCard/MovieCard";
+import { Movie } from "../utils/types";
 import { Link } from "react-router-dom";
+import "./MovieList.css";
 
 const MovieList: React.FC = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -45,10 +46,10 @@ const MovieList: React.FC = () => {
   }, [currentPage, limit, genres]);
 
   return (
-    <div>
+    <div className="movie-list-container">
       <h1>Movie List</h1>
 
-      <div>
+      <div className="movie-list">
         {loading ? (
           <p>Loading...</p>
         ) : movies.length > 0 ? (
@@ -65,7 +66,7 @@ const MovieList: React.FC = () => {
           <p>No movies found</p>
         )}
       </div>
-      <div>
+      <div className="pagination-buttons">
         <button
           onClick={() => handlePagination(currentPage - 1)}
           disabled={currentPage === 1}

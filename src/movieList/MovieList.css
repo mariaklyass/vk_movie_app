@@ -1,0 +1,30 @@
+.movie-list-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.movie-list h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.pagination-buttons {
+  margin-top: 20px;
+}
+
+.pagination-buttons button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.pagination-buttons button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

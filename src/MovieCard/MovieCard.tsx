@@ -1,6 +1,7 @@
 import React from "react";
-import { Movie } from "./utils/types";
-import placeholderMovieImg from "../public/placeholder.jpg";
+import { Movie } from "../utils/types";
+import placeholderMovieImg from "../../public/placeholder.jpg";
+import "./MovieCard.css";
 
 interface MovieCardProps {
   movie: Movie;
@@ -17,13 +18,12 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
       )}
       <p>{movie.description}</p>
       <div>
-        <strong>Ratings:</strong>
-        <ul>
+        <strong>Рейтинг:</strong>
+        <ul className="rating">
           <li>KP: {movie.rating.kp}</li>
           <li>IMDb: {movie.rating.imdb}</li>
           <li>Film Critics: {movie.rating.filmCritics}</li>
           <li>Russian Film Critics: {movie.rating.russianFilmCritics}</li>
-          <li>Await: {movie.rating.await}</li>
         </ul>
       </div>
       {/* <div>
