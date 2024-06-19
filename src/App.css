@@ -4,7 +4,12 @@
   padding: 2rem;
   text-align: center;
 }
+img {
+  width: 200px;
+}
 
+a {
+}
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -35,8 +40,4 @@
 
 .card {
   padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
