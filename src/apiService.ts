@@ -18,3 +18,35 @@ export const fetchMovies = async (page: number, limit: number) => {
     throw error;
   }
 };
+
+// export const fetchMovieDetails = async (id: number) => {
+//   const url = `${API_BASE_URL}/movie/${id}`;
+
+//   try {
+//     const response = await axios.get(url, {
+//       headers: {
+//         "X-API-KEY": apiKey,
+//       },
+//     });
+//     return response.data;
+//   } catch (error) {
+//     console.error("Error fetching movies: ", error);
+//     throw error;
+//   }
+// };
+
+export async function fetchMovieDetails(id: string) {
+  const url = `${API_BASE_URL}/movie/${id}`;
+
+  try {
+    const response = await axios.get(url, {
+      headers: {
+        "X-API-KEY": apiKey,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching movies: ", error);
+    throw error;
+  }
+}

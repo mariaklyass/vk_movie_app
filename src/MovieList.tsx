@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { fetchMovies } from "./apiService";
 import MovieCard from "./MovieCard";
 import { Movie } from "./utils/types";
@@ -11,8 +12,14 @@ const MovieList: React.FC = () => {
   const [genres, setGenres] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
+  const navigate = useNavigate();
+
   const handlePagination = (page: number): void => {
     setCurrentPage(page);
+  };
+
+  const handleMovieClick = (id) => {
+    navigate(`/movies/${id}`);
   };
 
   useEffect(() => {
@@ -48,7 +55,8 @@ const MovieList: React.FC = () => {
           movies.map((movie) => (
             <Link
               key={movie.id}
-              to={`/movies/${encodeURIComponent(movie.name)}`}
+              to={`/movies/${movie.id}`}
+              onClick={() => handleMovieClick(movie.id)}
             >
               <MovieCard movie={movie} />
             </Link>
